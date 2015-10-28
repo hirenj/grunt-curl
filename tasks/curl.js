@@ -141,6 +141,7 @@ module.exports = function (grunt) {
       // DEV: This is to pipe out gunzipped data
       var dataStream = req;
       dataStream.pipe(writeStream);
+      grunt.event.emit("curl", res);
 
       // When the stream errors or completes, exit
       writeStream.on('error', cb);
